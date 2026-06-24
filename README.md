@@ -23,36 +23,15 @@ released over time.
 SocialStructureHHI decomposes a high-level goal into a sequence of **phases** via an LLM planner,
 then generates each phase with a diffusion-transformer executor (on the
 [HunyuanMotion](https://github.com/Tencent/HunyuanMotion) backbone) in an **ego-centric** frame,
-alternating the two actors **Ping-Pong** style:
+alternating the two actors **Ping-Pong** style — P1 (Ping) acts first, P2 (Pong) reacts to P1's
+freshly generated motion, with ego↔world tracking stitching the phases into a coherent episode.
 
-```
-   global goal ──►  LLM planner  ──►  per-phase P1 / P2 text + duration bucket
-                                          │
-                                          ▼
-                 online Qwen / CLIP text encoding
-                                          │
-                                          ▼
-       run_030 executor   (HunyuanMotion-MMDiT + partner conditioning)
-         P1 (Ping):  self-history  +  partner = P2's previous phase
-         P2 (Pong):  self-history  +  partner = P1's just-generated phase
-                                          │
-                                          ▼
-              ego ↔ world tracking  ──►  two-person world motion (+ HTML viewer)
-```
+<p align="center">
+  <img src="docs/static/images/method.png" alt="SocialStructureHHI method overview" width="100%">
+</p>
 
-This repository releases the **run_030** model: pretrained weights, the full text→motion inference
-pipeline, and the data-preprocessing code.
-
-## 👥 Authors
-
-Zhongju Wang<sup>1</sup>, Beier Wang<sup>1</sup>, Yatao Bian<sup>2</sup>, Pichao Wang<sup>3</sup>,
-Zhi Wang<sup>4</sup>, Daoyi Dong<sup>5</sup>, Hongdong Li<sup>6</sup>,
-Huadong Mo<sup>1,✉</sup>, Zhenhong Sun<sup>6</sup>
-
-<sup>1</sup>University of New South Wales &nbsp; <sup>2</sup>National University of Singapore &nbsp;
-<sup>3</sup>NVIDIA &nbsp; <sup>4</sup>Nanjing University &nbsp;
-<sup>5</sup>University of Technology Sydney &nbsp; <sup>6</sup>Australian National University
-&nbsp;·&nbsp; <sup>✉</sup>Corresponding author
+This repository releases the model: pretrained weights, the full text→motion inference pipeline,
+and the data-preprocessing code.
 
 ## 🧩 Repository Structure
 
