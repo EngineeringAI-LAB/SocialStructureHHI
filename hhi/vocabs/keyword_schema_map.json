@@ -1,0 +1,237 @@
+{
+  "hug": {
+    "action": "hug", "actor_part": "UpperBody", "target_part": "UpperBody",
+    "spatial": "face_to_face", "contact": "full_body_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "handshake": {
+    "action": "handshake", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "waist_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "shake hand": {
+    "action": "handshake", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "waist_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "wave": {
+    "action": "wave", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "grab": {
+    "action": "grab", "actor_part": "RightHand", "target_part": "RightArm",
+    "spatial": "[N/A]", "contact": "firm_grasp",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "hit": {
+    "action": "hit", "actor_part": "RightHand", "target_part": "UpperBody",
+    "spatial": "chest_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "kick": {
+    "action": "kick", "actor_part": "RightFoot", "target_part": "LowerBody",
+    "spatial": "waist_height", "contact": "foot_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "posing": {
+    "action": "posing", "actor_part": "WholeBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "gesture"
+  },
+  "push": {
+    "action": "push", "actor_part": "RightHand", "target_part": "Chest",
+    "spatial": "chest_height", "contact": "firm_grasp",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "pull": {
+    "action": "pull", "actor_part": "RightHand", "target_part": "RightArm",
+    "spatial": "[N/A]", "contact": "firm_grasp",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "sit on leg": {
+    "action": "sit_on_leg", "actor_part": "LowerBody", "target_part": "LowerBody",
+    "spatial": "[N/A]", "contact": "full_body_contact",
+    "orientation": "side_by_side", "priority": "contact"
+  },
+  "slap": {
+    "action": "slap", "actor_part": "RightHand", "target_part": "Head",
+    "spatial": "head_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "pat on back": {
+    "action": "pat", "actor_part": "RightHand", "target_part": "Back",
+    "spatial": "[N/A]", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "pat": {
+    "action": "pat", "actor_part": "RightHand", "target_part": "Back",
+    "spatial": "[N/A]", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "point finger": {
+    "action": "point", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "gesture"
+  },
+  "point": {
+    "action": "point", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "gesture"
+  },
+  "walk towards": {
+    "action": "walk_towards", "actor_part": "WholeBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "spatial"
+  },
+  "knock over": {
+    "action": "knock_over", "actor_part": "RightHand", "target_part": "UpperBody",
+    "spatial": "chest_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "step on foot": {
+    "action": "step_on_foot", "actor_part": "RightFoot", "target_part": "RightFoot",
+    "spatial": "floor_level", "contact": "foot_contact",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "high-five": {
+    "action": "high_five", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "head_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "high five": {
+    "action": "high_five", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "head_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "chase": {
+    "action": "chase", "actor_part": "WholeBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "spatial"
+  },
+  "whisper": {
+    "action": "whisper", "actor_part": "Head", "target_part": "Head",
+    "spatial": "head_height", "contact": "no_contact",
+    "orientation": "side_by_side", "priority": "gesture"
+  },
+  "whisper in ear": {
+    "action": "whisper", "actor_part": "Head", "target_part": "Head",
+    "spatial": "head_height", "contact": "no_contact",
+    "orientation": "side_by_side", "priority": "gesture"
+  },
+  "support with hand": {
+    "action": "support_with_hand", "actor_part": "RightHand", "target_part": "UpperBody",
+    "spatial": "[N/A]", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "rock paper scissors": {
+    "action": "rock_paper_scissors", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "waist_height", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "rock-paper-scissors": {
+    "action": "rock_paper_scissors", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "waist_height", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "dance": {
+    "action": "dance", "actor_part": "WholeBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "spatial"
+  },
+  "link arms": {
+    "action": "link_arms", "actor_part": "RightArm", "target_part": "LeftArm",
+    "spatial": "waist_height", "contact": "arm_contact",
+    "orientation": "side_by_side", "priority": "contact"
+  },
+  "shoulder to shoulder": {
+    "action": "shoulder_to_shoulder", "actor_part": "UpperBody", "target_part": "UpperBody",
+    "spatial": "[N/A]", "contact": "light_touch",
+    "orientation": "side_by_side", "priority": "contact"
+  },
+  "bend": {
+    "action": "bend", "actor_part": "UpperBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "gesture"
+  },
+  "carry on back": {
+    "action": "carry_on_back", "actor_part": "Back", "target_part": "WholeBody",
+    "spatial": "[N/A]", "contact": "full_body_contact",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "massaging shoulder": {
+    "action": "massage_shoulder", "actor_part": "RightHand", "target_part": "Shoulder",
+    "spatial": "head_height", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "massaging leg": {
+    "action": "massage_leg", "actor_part": "RightHand", "target_part": "LowerBody",
+    "spatial": "waist_height", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "hand wrestling": {
+    "action": "hand_wrestling", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "waist_height", "contact": "firm_grasp",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "chat": {
+    "action": "chat", "actor_part": "Head", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "pat on cheek": {
+    "action": "pat_on_cheek", "actor_part": "RightHand", "target_part": "Head",
+    "spatial": "head_height", "contact": "light_touch",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "thumb up": {
+    "action": "thumb_up", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "waist_height", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "touch head": {
+    "action": "touch_head", "actor_part": "RightHand", "target_part": "Head",
+    "spatial": "head_height", "contact": "light_touch",
+    "orientation": "[N/A]", "priority": "contact"
+  },
+  "imitate": {
+    "action": "imitate", "actor_part": "WholeBody", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "kiss on cheek": {
+    "action": "kiss_on_cheek", "actor_part": "Head", "target_part": "Head",
+    "spatial": "head_height", "contact": "light_touch",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "help up": {
+    "action": "help_up", "actor_part": "RightHand", "target_part": "RightArm",
+    "spatial": "waist_height", "contact": "firm_grasp",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "cover mouth": {
+    "action": "cover_mouth", "actor_part": "RightHand", "target_part": "Head",
+    "spatial": "head_height", "contact": "light_touch",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "look back": {
+    "action": "look_back", "actor_part": "Head", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "gesture"
+  },
+  "block": {
+    "action": "block", "actor_part": "RightHand", "target_part": "RightHand",
+    "spatial": "chest_height", "contact": "hand_contact",
+    "orientation": "face_to_face", "priority": "contact"
+  },
+  "fly kiss": {
+    "action": "fly_kiss", "actor_part": "RightHand", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "face_to_face", "priority": "gesture"
+  },
+  "wait": {
+    "action": "wait", "actor_part": "[N/A]", "target_part": "[N/A]",
+    "spatial": "[N/A]", "contact": "no_contact",
+    "orientation": "[N/A]", "priority": "[N/A]"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "[N/A]": 0,
+  "face_to_face": 1,
+  "side_by_side_parallel": 2,
+  "side_by_side_opposite": 3,
+  "behind_target": 4,
+  "in_front_of_target": 5,
+  "perpendicular": 6,
+  "any": 7
+}

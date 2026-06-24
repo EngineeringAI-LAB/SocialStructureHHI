@@ -1,0 +1,25 @@
+# ── Model weights (host separately, e.g. HuggingFace / release assets) ────────
+checkpoints/**/*.pt
+checkpoints/**/*.ckpt
+
+# ── Data, outputs, logs ───────────────────────────────────────────────────────
+data/dataset_npz/
+data/text_feat_cache/
+data/llm_annot_cache/
+outputs/
+logs/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.ipynb_checkpoints/
+
+# ── Environment / IDE / OS ────────────────────────────────────────────────────
+.env
+.venv/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

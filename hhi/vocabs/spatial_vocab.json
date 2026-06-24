@@ -1,0 +1,18 @@
+{
+  "[N/A]": 0,
+  "face_to_face": 1,
+  "side_by_side": 2,
+  "behind": 3,
+  "in_front": 4,
+  "above": 5,
+  "below": 6,
+  "shoulder_height": 7,
+  "chest_height": 8,
+  "waist_height": 9,
+  "head_height": 10,
+  "close_range": 11,
+  "mid_range": 12,
+  "far_range": 13,
+  "left_of": 14,
+  "right_of": 15
+}

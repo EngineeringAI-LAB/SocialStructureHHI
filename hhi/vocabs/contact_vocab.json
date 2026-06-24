@@ -1,0 +1,14 @@
+{
+  "[N/A]": 0,
+  "no_contact": 1,
+  "light_touch": 2,
+  "firm_grasp": 3,
+  "full_body_contact": 4,
+  "hand_contact": 5,
+  "shoulder_contact": 6,
+  "back_contact": 7,
+  "chest_contact": 8,
+  "head_contact": 9,
+  "arm_contact": 10,
+  "foot_contact": 11
+}

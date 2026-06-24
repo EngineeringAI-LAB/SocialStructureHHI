@@ -1,0 +1,33 @@
+{
+  "_comment": "run_030: self_history prefix — noisy_latent = [self_history_local, noisy_target]. Eliminates train-inference mismatch from run_029.",
+
+  "data_dir"            : "/scratch3/wan451/3DBody/HHI_GEN/data/dataset_npz_cleaned",
+  "text_feat_cache_dir" : "/scratch3/wan451/3DBody/HHI_GEN/data/text_feat_cleaned",
+  "ckpt_dir"            : "/scratch3/wan451/3DBody/HHI_GEN/checkpoints/run_030",
+
+  "backbone_ckpt_path"  : "/scratch3/wan451/3DBody/HY-Motion-1.0/ckpts/tencent/HY-Motion-1.0-Lite/latest.ckpt",
+  "norm_stats_path"     : "/scratch3/wan451/3DBody/HHI_GEN/data/dataset_npz_cleaned/motion_norm_stats.npz",
+
+  "lora_rank"  : 16,
+  "lora_alpha" : 32.0,
+
+  "total_epochs"            : 200,
+  "early_stopping_patience" : 20,
+
+  "cfg_p_text"    : 0.0,
+
+  "w_fm"          : 1.0,
+  "w_smooth"      : 1.0,
+
+  "w_rel_dist"    : 1400.0,
+  "w_facing"      : 1130.0,
+  "w_rel"         : 1.0,
+
+  "batch_size"  : 64,
+  "num_workers" : 16,
+  "lr"          : 1e-4,
+  "weight_decay": 1e-4,
+  "grad_clip"   : 1.0,
+
+  "device": "cuda"
+}

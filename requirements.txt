@@ -1,0 +1,15 @@
+# Core
+torch>=2.1
+numpy
+h5py
+tqdm
+
+# Online text encoders (Qwen + CLIP) — used at inference and for offline text caching
+transformers>=4.44
+
+# Online planner LLM client (optional; only for OpenAI-compatible remote endpoints.
+# Local ollama is reached over HTTP and needs no extra package.)
+openai
+
+# NOTE: the HunyuanMotion backbone + SMPL body model are NOT on PyPI. Clone the
+# HunyuanMotion repo separately and point HUNYUAN_MOTION_ROOT at it (see README).

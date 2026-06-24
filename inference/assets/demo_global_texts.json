@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": "ix",
+    "seq_id": "G058T009A030R002",
+    "split": "val",
+    "global_text": "The first person raises his/her hands, reaches forward, and pinches both cheeks of the second person."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_2749",
+    "split": "val",
+    "global_text": "the first one's right hand pushes the other person's left shoulder, and the other person blocks it with their hand."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_745",
+    "split": "val",
+    "global_text": "the two are photographing themselves together."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_776",
+    "split": "val",
+    "global_text": "one retrieves a paper from one's pocket and passes it to the other."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_3655",
+    "split": "val",
+    "global_text": "the first person advances and launches an attack with the right hand while the other person retreats."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_732",
+    "split": "val",
+    "global_text": "two people reach out their right hands to greet one another."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_4972",
+    "split": "val",
+    "global_text": "the other person assists one person by lifting them up."
+  },
+  {
+    "dataset": "ih",
+    "seq_id": "IH_3338",
+    "split": "val",
+    "global_text": "one of the persons suddenly stands up while both were sitting."
+  }
+]
