@@ -8,7 +8,6 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2606.24255-b31b1b?style=for-the-badge&logo=arxiv)](https://arxiv.org/abs/2606.24255)
 [![Weights](https://img.shields.io/badge/🤗%20Weights-Model-00c2ff?style=for-the-badge)](https://huggingface.co/EngineeringAI-LAB/SocialStructure)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-Phase--Decomposition-ffb000?style=for-the-badge)](https://huggingface.co/datasets/EngineeringAI-LAB/SocialStructure)
-[![Backbone](https://img.shields.io/badge/Backbone-HunyuanMotion-444?style=for-the-badge)](https://github.com/Tencent/HunyuanMotion)
 
 </div>
 
@@ -21,8 +20,7 @@ the **social structure** between the actors: who acts, who reacts, and how conta
 released over time.
 
 SocialStructureHHI decomposes a high-level goal into a sequence of **phases** via an LLM planner,
-then generates each phase with a diffusion-transformer executor (on the
-[HunyuanMotion](https://github.com/Tencent/HunyuanMotion) backbone) in an **ego-centric** frame,
+then generates each phase with a diffusion-transformer executor in an **ego-centric** frame,
 alternating the two actors **Ping-Pong** style — P1 (Ping) acts first, P2 (Pong) reacts to P1's
 freshly generated motion, with ego↔world tracking stitching the phases into a coherent episode.
 
