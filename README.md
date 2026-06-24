@@ -65,7 +65,7 @@ and the data-preprocessing code.
 pip install -r requirements.txt
 
 # The HunyuanMotion backbone + SMPL body model are not on PyPI:
-git clone https://github.com/Tencent/HunyuanMotion        # or your local copy
+git clone https://github.com/Tencent-Hunyuan/HY-Motion-1.0        # or your local copy
 export HUNYUAN_MOTION_ROOT=/path/to/HY-Motion-1.0
 
 # Pretrained weights (🤗 https://huggingface.co/EngineeringAI-LAB/SocialStructure):
@@ -153,7 +153,7 @@ python preprocess/compute_norm_stats.py --train_dirs data/dataset_npz/train --ou
 
 ## 🙏 Acknowledgements
 
-Built on the [HunyuanMotion](https://github.com/Tencent/HunyuanMotion) backbone; trained on the
+Built on the [HunyuanMotion](https://github.com/Tencent-Hunyuan/HY-Motion-1.0) backbone; trained on the
 [Inter-X](https://liangxuy.github.io/inter-x/) and
 [InterHuman](https://tr3e.github.io/intergen-page/) datasets. The project page adapts the
 [Nerfies](https://github.com/nerfies/nerfies.github.io) template.
