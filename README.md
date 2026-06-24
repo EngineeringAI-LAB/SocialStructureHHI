@@ -28,9 +28,6 @@ freshly generated motion, with ego↔world tracking stitching the phases into a 
   <img src="docs/static/images/method.png" alt="SocialStructureHHI method overview" width="100%">
 </p>
 
-This repository releases the model: pretrained weights, the full text→motion inference pipeline,
-and the data-preprocessing code.
-
 ## 🧩 Repository Structure
 
 ```
