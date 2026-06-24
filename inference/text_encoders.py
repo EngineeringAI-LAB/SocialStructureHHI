@@ -1,7 +1,7 @@
 """
 text_encoders.py
 ----------------
-Online text encoders for run_030 inference, matching the OFFLINE encoding used
+Online text encoders for the executor,  matching the OFFLINE encoding used
 to build the training text-feature cache (see preprocess/encode_text_features.py).
 
   QwenTextEncoder : phase_text -> [T, 4096]  (Qwen last hidden state, chat template,

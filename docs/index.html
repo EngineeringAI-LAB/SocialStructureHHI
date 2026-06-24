@@ -119,7 +119,7 @@
       person&nbsp;1 acts first (<em>Ping</em>), then person&nbsp;2 reacts conditioned on person&nbsp;1's
       freshly generated motion (<em>Pong</em>). A pinned self-history prefix and per-phase ego↔world
       tracking remove train/inference mismatch and keep the two trajectories spatially coherent
-      across phases. The released <strong>run_030</strong> model is trained on Inter-X and InterHuman
+      across phases. The released model is trained on Inter-X and InterHuman
       and supports a full text→motion pipeline.
     </p>
   </div>
@@ -143,7 +143,7 @@
                  online Qwen / CLIP text encoding
                                           │
                                           ▼
-       run_030 executor   (HunyuanMotion-MMDiT + partner conditioning)
+       executor   (HunyuanMotion-MMDiT + partner conditioning)
          P1 (Ping):  self-history  +  partner = P2's previous phase
          P2 (Pong):  self-history  +  partner = P1's just-generated phase
                                           │
@@ -156,7 +156,7 @@
           duration), one at a time in a receding-horizon loop.</p>
       </div>
       <div class="column content">
-        <h3 class="title is-6">Executor (run_030)</h3>
+        <h3 class="title is-6">Executor</h3>
         <p class="is-size-7">HunyuanMotion-Lite backbone with variable-length partner conditioning
           and a pinned self-history prefix. 201-dim motion (6D rotations + root + FK).</p>
       </div>

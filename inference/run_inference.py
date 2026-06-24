@@ -1,7 +1,7 @@
 """
 run_inference.py
 ----------------
-Full text -> two-person-motion online pipeline for run_030.
+Full text -> two-person-motion online text->motion pipeline.
 
 Pipeline:
   1. Pick a high-level `global_text`. To stay in the training text distribution it
@@ -11,7 +11,7 @@ Pipeline:
   2. OnlinePlanner (LLM) decomposes the goal into phases, one at a time, each with
      concrete P1 / P2 body-motion descriptions and a duration bucket.
   3. Each phase text is encoded online with Qwen (+ CLIP) exactly as in training.
-  4. The run_030 executor generates the phase Ping-Pong style:
+  4. The executor generates the phase Ping-Pong style:
        P1 (Ping): self-history + partner = P2's previous phase
        P2 (Pong): self-history + partner = P1's just-generated phase
      with ego<->world tracking carried across phases.
@@ -22,7 +22,7 @@ seeded from inference/assets/init_pose.npz (two people standing ~1.3 m apart).
 
 Example:
   python inference/run_inference.py \
-      --ckpt checkpoints/run_030/best.pt \
+      --ckpt checkpoints/best.pt \
       --demo_id 4 \
       --llm_model qwen3.5:35b --llm_base_url http://localhost:11435/v1 \
       --out_dir outputs/demo_hug --render
@@ -72,7 +72,7 @@ def resolve_global_text(args, demo: List[dict]) -> str:
     if args.global_text:
         if not args.allow_custom_global:
             raise SystemExit(
-                "Custom --global_text is out-of-distribution for run_030. "
+                "Custom --global_text is out-of-distribution for the executor. "
                 "Pick one from the demo list with --demo_id, or pass "
                 "--allow_custom_global to override (quality may degrade)."
             )
@@ -166,7 +166,7 @@ def run_episode(
             p1_partner, p1_pmask = C.partner_to_tensor(p2_prev_in_p1ego, device)
 
         # ── Ping: P1 ─────────────────────────────────────────────────────────
-        pred_p1 = C.sample_ode_030(model, ctxt1, vtxt1, smf, hist1_n, W,
+        pred_p1 = C.sample_ode(model, ctxt1, vtxt1, smf, hist1_n, W,
                                    p1_partner, p1_pmask, n_steps=n_steps, device=device)[0].cpu().numpy()
         pred_p1 = HHIPartnerModel.smooth_motion(torch.from_numpy(pred_p1)).numpy()
         pred_p1_world = C.ego_to_world_motion(pred_p1, p1_origin, p1_R)
@@ -174,7 +174,7 @@ def run_episode(
         # ── Pong: P2, partner = P1's just-generated phase, in current P2 ego ──
         p1_curr_in_p2ego = C.world_to_ego_motion(pred_p1_world, p2_origin, p2_R)
         p2_partner, p2_pmask = C.partner_to_tensor(p1_curr_in_p2ego, device)
-        pred_p2 = C.sample_ode_030(model, ctxt2, vtxt2, smf, hist2_n, W,
+        pred_p2 = C.sample_ode(model, ctxt2, vtxt2, smf, hist2_n, W,
                                    p2_partner, p2_pmask, n_steps=n_steps, device=device)[0].cpu().numpy()
         pred_p2 = HHIPartnerModel.smooth_motion(torch.from_numpy(pred_p2)).numpy()
         pred_p2_world = C.ego_to_world_motion(pred_p2, p2_origin, p2_R)
@@ -223,8 +223,8 @@ def run_episode(
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ckpt", default=os.path.join(_REPO, "checkpoints", "run_030", "best.pt"))
-    ap.add_argument("--cfg_json", default=os.path.join(_REPO, "experiments", "train_030_config.json"))
+    ap.add_argument("--ckpt", default=os.path.join(_REPO, "checkpoints", "best.pt"))
+    ap.add_argument("--cfg_json", default=os.path.join(_REPO, "experiments", "executor_config.json"))
     ap.add_argument("--norm_stats", default=os.path.join(_REPO, "data", "motion_norm_stats.npz"))
     ap.add_argument("--out_dir", default=os.path.join(_REPO, "outputs", "online"))
     # text / planner
@@ -259,7 +259,7 @@ def main() -> None:
 
     global_text = resolve_global_text(args, demo)
 
-    model = C.load_run030_model(args.ckpt, args.cfg_json, args.norm_stats, args.device)
+    model = C.load_executor_model(args.ckpt, args.cfg_json, args.norm_stats, args.device)
     qwen  = QwenTextEncoder(args.qwen_path, max_length=256, device=args.device)
     clip  = CLIPTextEncoder(args.clip_path, device=args.device)
     planner = OnlinePlanner(model_name=args.llm_model, base_url=args.llm_base_url,

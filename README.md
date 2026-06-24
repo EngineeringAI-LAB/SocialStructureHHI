@@ -38,7 +38,7 @@ and the data-preprocessing code.
 ```
 ├── hhi/                       core library
 │   ├── hhi_executor_model.py    HunyuanMotion backbone + HHI conditioning
-│   ├── hhi_partner_model.py     + variable-length partner conditioning (run_030)
+│   ├── hhi_partner_model.py     + variable-length partner conditioning
 │   ├── hhi_state_machine.py     ego↔world transforms, Y-grounding
 │   ├── hhi_constants.py         joint indices, contact thresholds, buckets, dataset paths
 │   ├── hhi_types.py             dataclasses (PhaseSample, PhasePlan, …)
@@ -50,14 +50,14 @@ and the data-preprocessing code.
 ├── llm_interaction/           planner (phase decomposition) + prompts
 ├── inference/
 │   ├── run_inference.py         full text→motion pipeline (entry point)
-│   ├── infer_core.py            run_030 sampling + ego transforms + renderer
+│   ├── infer_core.py            executor sampling + ego transforms + renderer
 │   ├── text_encoders.py         online Qwen + CLIP encoders (match training cache)
 │   ├── online_planner.py        receding-horizon LLM planner
 │   └── assets/                  demo_global_texts.json, init_pose.npz
 ├── preprocess/                data pipeline (annotate → export → encode-text → norm-stats)
-├── checkpoints/run_030/       best.pt  (weights — gitignored, host separately)
+├── checkpoints/                best.pt  (weights — gitignored, host separately)
 ├── data/motion_norm_stats.npz dataset normalization stats (required by the model)
-├── experiments/               train_030_config.json
+├── experiments/               executor_config.json
 └── docs/                      GitHub Pages project homepage
 ```
 
@@ -72,8 +72,8 @@ export HUNYUAN_MOTION_ROOT=/path/to/HY-Motion-1.0
 
 # Pretrained weights (🤗 https://huggingface.co/EngineeringAI-LAB/SocialStructure):
 python -c "from huggingface_hub import hf_hub_download as d; \
-import shutil, os; os.makedirs('checkpoints/run_030', exist_ok=True); \
-shutil.copy(d('EngineeringAI-LAB/SocialStructure','ckpts/best.pt'), 'checkpoints/run_030/best.pt')"
+import shutil, os; os.makedirs('checkpoints', exist_ok=True); \
+shutil.copy(d('EngineeringAI-LAB/SocialStructure','ckpts/best.pt'), 'checkpoints/best.pt')"
 ```
 
 The phase-decomposition **dataset** (motion + text `.h5`) lives at

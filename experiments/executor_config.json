@@ -1,0 +1,28 @@
+{
+  "_comment": "Executor training/inference config. noisy_latent = [self_history_local, target]; the self-history prefix is pinned throughout sampling.",
+
+  "backbone_ckpt_path"  : "${HUNYUAN_MOTION_ROOT}/ckpts/tencent/HY-Motion-1.0-Lite/latest.ckpt",
+  "norm_stats_path"     : "data/motion_norm_stats.npz",
+
+  "lora_rank"  : 16,
+  "lora_alpha" : 32.0,
+
+  "total_epochs"            : 200,
+  "early_stopping_patience" : 20,
+
+  "cfg_p_text"    : 0.0,
+
+  "w_fm"          : 1.0,
+  "w_smooth"      : 1.0,
+  "w_rel_dist"    : 1400.0,
+  "w_facing"      : 1130.0,
+  "w_rel"         : 1.0,
+
+  "batch_size"  : 64,
+  "num_workers" : 16,
+  "lr"          : 1e-4,
+  "weight_decay": 1e-4,
+  "grad_clip"   : 1.0,
+
+  "device": "cuda"
+}

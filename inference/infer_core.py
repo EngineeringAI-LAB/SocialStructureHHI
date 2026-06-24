@@ -1,14 +1,12 @@
 """
 infer_core.py
 -------------
-run_030 inference primitives, factored out of the original research script
-`infer_render_030.py` so they can be driven by either the dataset-replay path or
-the online text->motion pipeline (run_inference.py).
+Executor inference primitives for the online text->motion pipeline (run_inference.py).
 
 Contents:
   - ego<->world coordinate transforms for the 201-dim motion representation
-  - sample_ode_030 : flow-matching ODE sampler with a pinned self-history prefix
-  - load_run030_model : build HHIPartnerModel and load a run_030 checkpoint
+  - sample_ode : flow-matching ODE sampler with a pinned self-history prefix
+  - load_executor_model : build HHIPartnerModel and load an executor checkpoint
   - render_html : two-person SMPL viewer (optional, needs HunyuanMotion repo)
 
 Motion layout (201-dim, per frame):
@@ -100,10 +98,10 @@ def partner_to_tensor(motion_ego: np.ndarray, device: str) -> Tuple[torch.Tensor
     return seq, mask
 
 
-# ── ODE sampling (run_030: self-history prefix pinned throughout) ─────────────
+# ── ODE sampling (self-history prefix pinned throughout) ─────────────
 
 @torch.no_grad()
-def sample_ode_030(
+def sample_ode(
     model            : HHIPartnerModel,
     ctxt_feat        : Optional[torch.Tensor],
     vtxt_feat        : Optional[torch.Tensor],
@@ -137,7 +135,7 @@ def sample_ode_030(
 
 # ── Model loading ─────────────────────────────────────────────────────────────
 
-def load_run030_model(ckpt_path: str, cfg_json: str, norm_stats_path: str, device: str) -> HHIPartnerModel:
+def load_executor_model(ckpt_path: str, cfg_json: str, norm_stats_path: str, device: str) -> HHIPartnerModel:
     train_cfg: dict = {}
     if cfg_json and os.path.exists(cfg_json):
         with open(cfg_json) as f:
@@ -161,7 +159,7 @@ def load_run030_model(ckpt_path: str, cfg_json: str, norm_stats_path: str, devic
     if missing:    logger.warning("Missing keys: %s", missing)
     if unexpected: logger.warning("Unexpected keys: %s", unexpected)
     model.to(device).eval()
-    logger.info("run_030 model loaded (epoch=%s)", ckpt.get("epoch", "?"))
+    logger.info("executor loaded (epoch=%s)", ckpt.get("epoch", "?"))
     return model
 
 
